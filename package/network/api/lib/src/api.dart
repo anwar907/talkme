@@ -1,9 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:api_client/api_client.dart';
 import 'package:http/http.dart' as http;
 
-class FoodApi implements TalkmeApi {
+class CompletionApi implements TalkmeApi {
   @override
   Future<CompletionModels> fetchDataCompletion(
       {String? roleValue, String? contentValue}) async {
@@ -20,6 +21,8 @@ class FoodApi implements TalkmeApi {
               {"role": roleValue, "content": contentValue}
             ]
           }));
+
+      log('response >>${response.body}');
 
       return CompletionModels.fromJson(jsonDecode(response.body));
     } catch (e) {

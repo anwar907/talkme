@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Test Response', () async {
-    var data = await FoodApi().fetchDataCompletion(
+    var data = await CompletionApi().fetchDataCompletion(
         roleValue: 'user', contentValue: 'can you hear me?');
 
     print(data.choise?[0].message?.content);
