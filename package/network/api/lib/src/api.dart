@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:api_client/api_client.dart';
 import 'package:http/http.dart' as http;
@@ -8,6 +7,7 @@ class CompletionApi implements TalkmeApi {
   @override
   Future<CompletionModels> fetchDataCompletion(
       {String? roleValue, String? contentValue}) async {
+    /// input Bearer token in [Authorization] value
     try {
       final response = await http.post(
           Uri.parse('https://api.openai.com/v1/chat/completions'),
@@ -21,8 +21,6 @@ class CompletionApi implements TalkmeApi {
               {"role": roleValue, "content": contentValue}
             ]
           }));
-
-      log('response >>${response.body}');
 
       return CompletionModels.fromJson(jsonDecode(response.body));
     } catch (e) {

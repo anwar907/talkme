@@ -1,16 +1,11 @@
-# talkme
+# Documentation
 
-A new Flutter project.
+### Insert Token
+Before start running apps need `Bearer token` and paste on directory `package/network/api/lib/src/api.dart`, this centitive data so I can't provide the `Bearer token`
 
-## Getting Started
+### Unit Test
+This application has one feature so I try to apply the modular concept so that it is easy to unit test each feature, you can check on directory `package/completion_repository`
 
-This project is a starting point for a Flutter application.
+for integration tests can also be applied because those related to the network I create different packages for that need. you can check on directory  `package/network/api` or `package/network/api_client`
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+and for the main directory there is only available UI and management state so it is easy to implement widget tests if needed. this is main directory ready on `lib/home`

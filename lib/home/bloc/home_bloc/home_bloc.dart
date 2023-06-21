@@ -17,6 +17,7 @@ class HomeBloc extends Bloc<HomeEventStarted, HomeState> {
 
   Future<void> mapEventToState(
       HomeEventStarted event, Emitter<HomeState> emit) async {
+    /// default role is [user] you can change with other role
     try {
       final fetchCompletion = await _completionRepository.fetchDataCompletion(
           role: 'user', value: event.messageValue);
