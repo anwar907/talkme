@@ -23,7 +23,8 @@ class DashboardView extends StatelessWidget {
           );
         } else if (state.status == GlobalStatus.success) {
           return Center(
-            child: Text(state.completionModels?.object ?? ''),
+            child:
+                Text(state.completionModels?.choise?[0].message?.content ?? ''),
           );
         } else if (state.status == GlobalStatus.failure) {
           return Container(
@@ -69,7 +70,6 @@ class DashboardView extends StatelessWidget {
                                                   .read<CompletionRepository>())
                                           .add(HomeEventStarted(
                                               messageValue: controller.text));
-
                                       Navigator.pop(context);
                                     },
                                   ),
@@ -84,7 +84,6 @@ class DashboardView extends StatelessWidget {
                 );
               });
         },
-        tooltip: 'Increment',
         child: const Icon(Icons.message),
       ),
     );
